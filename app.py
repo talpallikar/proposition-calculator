@@ -67,9 +67,10 @@ def calculate_route(route):
 def prep_tweet(gtime, btime, gcost):
     base = "https://twitter.com/intent/tweet?"
     text = "&text="+"Proposition%201%20saves%20me%20"+str((btime-gtime)*2)+"%20minutes%20per%20day,%20and%20$"+str(gcost)+"%20per%20month!"
-    htag = "&hashtags="+"MoveAustinForward,ATX,Prop1" 
+    htag = "&hashtags="+"MoveAustinForward,ATX,Prop1"
+    vias = "&via="+"@1ForAustin" 
     
-    tweet = base+text+htag
+    tweet = base+text+htag+vias
     return tweet
 
 
