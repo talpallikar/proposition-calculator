@@ -1,28 +1,59 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
+{% block head %}
+{{super()}}
+{% endblock %}
 <body>
+{% block twiticon %}
+{{super()}}
+{% endblock %}
+{% block content %}
 
-<p>Current Commute Distance:</p>
-{{commute_distance}}
+<div class = "container">
+{% if route== 1 %}
+<iframe src="https://www.google.com/maps/embed?pb=!1m24!1m8!1m3!1d31061.745757906694!2d-97.769007!3d30.2582208!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x8644b59a91b6ed65%3A0x1127f4ad837647e0!2sUniversity+of+Texas+at+Austin%2C+Austin%2C+TX!3m2!1d30.285028399999998!2d-97.7335226!4m5!1s0x865b4ad6b1f4b669%3A0xb200ad9d975a19ed!2sBarton+Creek+Greenbelt%2C+South+Capital+of+Texas+Highway%2C+Austin%2C+TX!3m2!1d30.243699999999997!2d-97.80078309999999!5e1!3m2!1sen!2sus!4v1479071156719" width="600" height="450" align = "left" frameborder="0" style="border:0" allowfullscreen></iframe>
+{% endif %}
 
-<p>Current Commute Time:</p>
-{{current_time}}
+{% if route == 2 %}
+<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d55137.32429257061!2d-97.73593381623722!3d30.263222841481394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x8644b41e793a4725%3A0xd78e0ca39d63992a!2sRiverside+Meadows%2C+Montopolis+Drive%2C+Austin%2C+TX!3m2!1d30.226409399999998!2d-97.7006023!4m5!1s0x8644b5089ad5aa81%3A0x505e64e261623ea7!2sThinkery%2C+Simond+Avenue%2C+Austin%2C+TX!3m2!1d30.297427!2d-97.70495439999999!5e0!3m2!1sen!2sus!4v1479070476941" width="600" height="450" align = "left" frameborder="0" style="border:0" allowfullscreen></iframe>
+{% endif %}
 
-<p>Projected Commute Time:</p>
-{{bad_time}}
+{% if route == 3 %}
+<iframe src="https://www.google.com/maps/embed?pb=!1m24!1m8!1m3!1d55155.01585390553!2d-97.8062928!3d30.2317009!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x0%3A0xcb6f5722a795d039!2sTexas+Capitol!3m2!1d30.274665199999998!2d-97.74035049999999!4m5!1s0x865b4b39d05f0529%3A0xa75830de1b8c30d3!2sWestern+Trail+Apartments%2C+2422+Western+Trails+Blvd%2C+Austin%2C+TX+78745!3m2!1d30.230243599999998!2d-97.7966319!5e0!3m2!1sen!2sus!4v1479069631341" width="600" height="450" align = "left" frameborder="0" style="border:0" allowfullscreen></iframe>
+{% endif %}
+</div>
 
-<p>Commute Time with Prop 1:</p>
-{{new_time}}
+<h2>Commute Time Calculations:</h2>
+<p>Current Commute Distance: {{commute_distance}} miles</p>
 
-<p>Projected Annual Tax Increase:</p>
-{{ann_inc}}
+<p>Current Commute Time: {{current_time}} minutes</p>
 
-<p>Projected Monthly Tax Increase:</p>
-{{month_inc}}
+<p>Projected Commute Time: {{bad_time}} minutes </p>
 
-<p>Net Monthly Return:</p>
-{{net_cost}}
+<p>Commute Time with Prop 1: {{new_time}} minutes </p>
 
+<h2>Tax Calculations:</h2>
+<p>Projected Annual Tax Increase: ${{ann_inc}} </p>
+
+<p>Projected Monthly Tax Increase: ${{month_inc}} </p>
+
+<p>Net Monthly Return: ${{net_cost}} </p>
+<br>
+<div class="sharer">
+<a href="https://www.facebook.com/sharer/sharer.php?u=www.austintx.gov" target="_blank"> <!-- change the URL to your feature URL -->
+  <div id="fb-share">
+    <i class="fa fa-facebook-square" aria-hidden="false"></i>
+    <span>Facebook</span>
+  </div>
+</a>
+<a href={{tweet}} target="_blank"> <!-- add the tweet you want to write after ?status= -->
+  <div id="twitter-share">
+    <i class="fa fa-twitter-square" aria-hidden="false"></i>
+    <span>Twitter</span>
+  </div>
+</a>
+</div>
+
+{% endblock %}
 </body>
 </html>
 

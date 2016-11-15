@@ -4,6 +4,8 @@ from flask import Flask, request, render_template
 
 app = Flask(__name__)
 COST = 1159/12
+#app.add_url_rule('/favicon.ico',
+ #                redirect_to=url_for('static', filename='favicon.ico'))
 
 @app.route('/')
 def myform():
@@ -25,8 +27,9 @@ def myform_post():
     btime=0
     gcost=0
     nroute, ctime, dist, gtime, btime, gcost = calculate_route(route)
+    tweet = prep_tweet(gtime, btime, gcost)
     #return new info
-    return render_template("output.html", commute_distance=dist, current_time=ctime, bad_time = btime, new_time=gtime, ann_inc=annual_incr, month_inc = monthly_incr, net_cost=gcost)
+    return render_template("output.html", route = route, tweet = tweet, commute_distance=dist, current_time=ctime, bad_time = btime, new_time=gtime, ann_inc=annual_incr, month_inc = monthly_incr, net_cost=gcost)
 
 def calculate_tax(property_value):
     annual_tax = (int(property_value)//100) * .0225
@@ -45,8 +48,6 @@ def calculate_route(route):
         btime = time*1.13
         gcost = 1159*.51
 
-        #https://www.google.com/maps/dir/Texas+Capitol/Western+Trail+Apartments,+2422+Western+Trails+Blvd,+Austin,+TX+78745/@30.2317009,-97.8062928,13z/data=!4m18!4m17!1m5!1m1!1s0x0:0xcb6f5722a795d039!2m2!1d-97.7403505!2d30.2746652!1m5!1m1!1s0x865b4b39d05f0529:0xa75830de1b8c30d3!2m2!1d-97.7966319!2d30.2302436!2m3!1b1!7e2!8j1478452800!3e0
-
     if route == 2:
         time = 18 
         dist = 5.6
@@ -62,6 +63,14 @@ def calculate_route(route):
         gcost = time*.49
 
     return route, time, dist, gtime, btime, gcost
+
+def prep_tweet(gtime, btime, gcost):
+    base = "https://twitter.com/intent/tweet?"
+    text = "&text="+"Proposition%201%20saves%20me%20"+str((btime-gtime)*2)+"%20minutes%20per%20day,%20and%20$"+str(gcost)+"%20per%20month!"
+    htag = "&hashtags="+"MoveAustinForward,ATX,Prop1" 
+    
+    tweet = base+text+htag
+    return tweet
 
 
 app.run()

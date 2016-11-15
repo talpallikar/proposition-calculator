@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% block head %}
+  <title>ba-calc</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i|Roboto:400,400i,500,500i" rel="stylesheet">
+    <link rel="shortcut icon" href="https://www.google.com/s2/favicons?domain=www.dailytexanonline.com">
+    <!-- inlined stylesheet -->
+    <style>
+    /* globals */
+      h1, h2, h3, h4, h5, h6 {
+        font-family: Merriweather, Georgia, serif;
+      }
+      p, a, li, ul, span {
+        font-family: Roboto, Helvetica, Arial, sans-serif;
+      }
+      p {
+        font-size: 16px;
+        line-height: 1.6;
+      }
+      /* navigation */
+      .navbar {
+        background: #cc5527;
+        border: 0;
+        border-radius: 0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.025), 0 1px 2px rgba(0,0,0,0.07);
+        display: flex;
+        align-content: center;
+        margin-bottom: 0 !important;
+      }
+      .navbar-brand {
+        color: #fff !important;
+        font-family: Merriweather, Georgia, serif;
+        margin-left: 0 !important;
+        text-align: center;
+        width: 100%;
+      }
+      .navbar-brand:hover {
+        text-decoration: underline;
+      }
+      /* main page content */
+      div.row.header {
+        margin-top: 1em;
+      }
+      div.header > div.col-md-8, .credits > div.col-md-8 {
+        padding: 0;
+        padding-bottom: 1em;
+      }
+      h1#headline {
+        font-size: 3em;
+      }
+      p.byline {
+        font-size: 1em;
+        font-style: italic;
+      }
+      .sharer {
+        display: flex;
+        -webkit-flex-direction: row;
+        -moz-flex-direction: row;
+        -ms-flex-direction: row;
+        -o-flex-direction: row;
+        flex-direction: row;
+      }
+      .sharer > a {
+        text-decoration: none !important;
+      }
+      #fb-share, #twitter-share {
+        margin: 0 .5em 0 .5em;
+      }
+      #fb-share {
+        background:#3b5998;
+        border-radius: 3px;
+        color: #fff;
+        margin-left: 0;
+        padding: .1em .6em .1em .6em;
+      }
+      #fb-share:hover {
+        background: #6d84b4;
+      }
+      #twitter-share {
+        background:#00aced;
+        border-radius: 3px;
+        color: #fff;
+        margin-left: 0;
+        padding: .1em .6em .1em .6em;
+      }
+      #twitter-share:hover {
+        background: #07bbff;
+      }
+      #fb-share > span, #twitter-share > span {
+        font-size: 1.25rem;
+        margin-left: .25em;
+      }
+      .main-content-container {
+        margin-bottom: 2em;
+      }
+      #main {
+        border-top: 1px solid lightgray;
+        padding: 1em 0;
+      }
+      /* credits */
+      .credits {
+        border-top: 1px solid lightgray;
+        border-bottom: 1px solid lightgray;
+        padding-top: 1em;
+        padding-bottom: 1em;
+      }
+      /* footer */
+      footer {
+        padding-top: 1em;
+        padding-bottom: 1em;
+      }
+      .footer-txt {
+        font-size: 1em;
+        text-align: center;
+      }
+      /* RESPONSIVE DESIGN */
+      @media (max-width: 768px) {
+        div.row.header {
+          margin-top: 0;
+        }
+        div.row {
+          padding: 0 2em;
+        }
+      }
+    </style>
+
+{% endblock %}
+</head>
+<body>
+{% block twiticon %}
+<a href="https://twitter.com/intent/user?user_id=797906689810923520"><img src="https://g.twimg.com/dev/documentation/image/Twitter_logo_blue_48.png" alt=twit/> </a>
+{% endblock %}
+{% block content %}
+<div class="container">
+  <h1>My First Bootstrap Page</h1>
+  <p>This part is inside a .container class.</p>
+  <p>The .container class provides a responsive fixed width container.</p>
+</div>
+{% endblock %}
+{% block footer %} <footer>Created by 1ForAustin</footer> {% endblock %}
+</body>
+</html>
+

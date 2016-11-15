@@ -1,12 +1,18 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
+{% block head %}
+{{super()}}
+{% endblock %}
 <body>
+{% block twiticon %}
+{{super()}}
+{% endblock %}
+{% block content %}
 
  <form action="." method="POST">
      <p>
-Enter Taxable Assessed Home Value: $    </p>
+Enter Taxable Assessed Home Value:     </p>
 
-    <input type="number" name="money">
+    <p>$<input type="number" name="money"></p>
 
     <br>
     <p>
@@ -21,7 +27,7 @@ Enter Route:
   <input type="submit" name="frm" value="Send">
 
  </form>
-
+{% endblock %}
 </body>
 </html>
 
